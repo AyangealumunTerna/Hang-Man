@@ -40,6 +40,8 @@ function verifyingString(str){
 }
 
 function makeGuess(letter){
+    if(!letter) return; // Ignore empty guesses
+
     if(verifyingString(letter)){ // Check if guessed letter exists in the chosen word
         if(!correctGuesses.includes(letter)){
             correctGuesses.push(letter); // Add new correct letter if not guessed before
@@ -51,10 +53,23 @@ function makeGuess(letter){
         alert("Wrong guess, try again!"); // Letter does not exist in the chosen word
     }
     updateDisplayedWord(chosenWord, correctGuesses); // Refresh the displayed word
+    checkWin(); // Check if the player has won after each guess
 }
 
+
+function checkWin(){
+    let currentWord =updateDisplayedWord(chosenWord, correctGuesses).replace(/\s/g, ''); // Remove spaces for win check
+    if(currentWord === chosenWord){
+        alert("Congratulations! You've guessed the word!");
+        correctGuesses = []; // Reset for a new game
+        chosenWord = pickRandomWord(); // Pick a new word
+        updateDisplayedWord(chosenWord, correctGuesses); // Update display for new word
+    }
+}
 // Example testing (not needed in final game)
-makeGuess();
+// makeGuess();
+
+// // Initial code before applying DRY principle    
 
 
 // // DRY
