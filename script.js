@@ -33,14 +33,14 @@ function updateDisplayedWord(word, arr = [correctGuesses]){
     return joinedWord;
 }
 
-function verfyingString(str){
+function verifyingString(str){
     let givenWord = chosenWord.split("");
     let sortingWord = givenWord.includes(str); // Check if the chosen word contains the guessed letter
     return sortingWord;
 }
 
 function makeGuess(letter){
-    if(verfyingString(letter)){ // Check if guessed letter exists in the chosen word
+    if(verifyingString(letter)){ // Check if guessed letter exists in the chosen word
         if(!correctGuesses.includes(letter)){
             correctGuesses.push(letter); // Add new correct letter if not guessed before
         } else {
@@ -81,18 +81,18 @@ makeGuess();
 // }
 
 // function updateDisplayedWord(word, arr=[correctGuesses]){
-//     let splitWord = word.split(""); // As the word split implies to seprate the word e.g food.split("") = f o o d
+//     let splitWord = word.split(""); // As the word split implies to separate the word e.g food.split("") = f o o d
 //     let convertWord = splitWord.map(letter => {
 //         if (arr.includes(letter)) return letter
 //         else return "_"
-//         // This lines of code is where the entered letter is checked and confrimed if it meets any splited letter and if not the word returns _
+//         // This lines of code is where the entered letter is checked and confirmed if it meets any splinted letter and if not the word returns _
 //     });
-//     let joinedWord = convertWord.join(" "); // After confriming the letter this line joins the splited letters back 
+//     let joinedWord = convertWord.join(" "); // After confirming the letter this line joins the splinted letters back 
 //     displayedWord.innerHTML = joinedWord; // This line displays the joined word for the user to see
 //     return joinedWord;
 // }
 
-// function verfyingString(str){
+// function verifyingString(str){
 //     let givenWord = chosenWord.split("");
 //     let sortingWord = givenWord.includes(str);
 //     // if (sortingWord){
@@ -103,7 +103,7 @@ makeGuess();
 //     return sortingWord
 // }
 // function makeGuess(letter){
-//     if(verfyingString(letter)){ // This line checks if the letter the user enters is one among the word e.g is "a" part of "food"? 
+//     if(verifyingString(letter)){ // This line checks if the letter the user enters is one among the word e.g is "a" part of "food"? 
 //         if(!correctGuesses.includes(letter)){
 //             // If yes and you haven't guessed it before then store it in correctGuesses
 //             correctGuesses.push(letter); // add new correct letter
@@ -121,8 +121,8 @@ makeGuess();
 
 
 
-// // console.log(verfyingString("f") )
-// // updateDisplayedWord(choosenWord, correctGuesses);
+// // console.log(verifyingString("f") )
+// // updateDisplayedWord(chosenWord, correctGuesses);
 // // console.log(updateDisplayedWord(pickedWord, correctGuesses))
-// // console.log(verfyingString(correctGuesses))
+// // console.log(verifyingString(correctGuesses))
 // makeGuess(keyboard);
